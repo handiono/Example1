@@ -14,13 +14,12 @@
 
 <!-- postgres setting -->
 
-		<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
 		destroy-method="close">
         <property name="driverClass" value="org.postgresql.Driver" />
-        <property name="jdbcUrl" 
-        value="jdbc:postgres://ezpvjxwk:Gjex0_1OcLzjhugGcWGgkwJZtSi_6gr-@babar.elephantsql.com:5432/ezpvjxwk" />
-        <property name="username" value="ezpvjxwk"/>
-        <property name="password" value="Gjex0_1OcLzjhugGcWGgkwJZtSi_6gr-"/>
+        <property name="jdbcUrl" value="jdbc:postgresql:test" />
+        <property name="username" value="han"/>
+        <property name="password" value="fender"/>
         <property name="maxConnectionsPerPartition" value="60"/>
         <property name="minConnectionsPerPartition" value="20"/>
         <property name="partitionCount" value="3"/>
