@@ -1,10 +1,10 @@
-package org.apache.jsp.view.barang;
+package org.apache.jsp.view.user;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class edit_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class view_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -44,34 +44,31 @@ public final class edit_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("<title>Masukkan Nama Barang</title>\n");
+      out.write("<title>Masukkan User Baru</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("\t<h1>Masukkan Nama Barang</h1>\n");
-      out.write("\t<form action=\"barang\" method=\"post\">\n");
-      out.write("\t<input type=\"hidden\" name=\"id\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${barang1.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">\n");
-      out.write("\t<input type=\"hidden\" name=\"ganti\">\n");
+      out.write("\t<h1>Masukkan User Baru</h1>\n");
+      out.write("\t<form action=\"user\" method=\"post\">\n");
+      out.write("\t<input type=\"hidden\" name=\"tambah\">\n");
       out.write("\t<ul>\n");
-      out.write("\t<li>Part No: <input type=\"text\" name=\"partno\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${barang1.partno}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\"></li>\n");
-      out.write("\t<li>Part Name <input type=\"text\" name=\"partname\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${barang1.partname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\"></li>\n");
+      out.write("\t<li>Username <input type=\"text\" name=\"username\"></li>\n");
+      out.write("\t<li>Password <input type=\"text\" name=\"password\"></li>\n");
+      out.write("\t<li>Role: <select name=\"role\">\n");
+      out.write("\t\t\t\t\t<option value=\"ROLE_USER\">User</option>\n");
+      out.write("\t\t\t\t\t<option value=\"ROLE_ADMIN\">Admin</option>\n");
+      out.write("\t\t\t</select>\n");
+      out.write("\t</li>\n");
+      out.write("\t<li> Status\n");
+      out.write("\t\t<br>\n");
+      out.write("\t\t<input type=\"radio\" name=\"enable\" value=\"TRUE\" checked>Aktif\n");
+      out.write("\t\t<br>\n");
+      out.write("\t\t<input type=\"radio\" name=\"enable\" value=\"FALSE\">Tidak\n");
+      out.write("\t\t\n");
+      out.write("\t</li>\n");
       out.write("\t</ul>\n");
-      out.write("\t<input type=\"submit\" value=\"ganti\">\n");
+      out.write("\t<input type=\"submit\" value=\"tambah\">\n");
       out.write("\t</form>\n");
-      out.write("\t\n");
-      out.write("\t<form action=\"barang\" method=\"post\">\n");
-      out.write("\t<input type=\"hidden\" name=\"id\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${barang1.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">\n");
-      out.write("\t<input type=\"hidden\" name=\"hapus\">\n");
-      out.write("\t<input type=\"submit\" value=\"hapus\">\n");
-      out.write("\t</form>\n");
-      out.write("\t<a href=\"barang\">Kembali ke List Barang</a>\n");
+      out.write("\t<a href=\"user\">Kembali ke List User</a>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {

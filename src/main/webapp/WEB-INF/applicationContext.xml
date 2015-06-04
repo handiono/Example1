@@ -12,20 +12,14 @@
 	<context:annotation-config />
 	<tx:annotation-driven />
 
-<!-- postgres setting -->
-
-	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
 		destroy-method="close">
-        <property name="driverClass" value="org.postgresql.Driver" />
-        <property name="jdbcUrl" value="jdbc:postgresql:test" />
-        <property name="username" value="han"/>
-        <property name="password" value="fender"/>
-        <property name="maxConnectionsPerPartition" value="60"/>
-        <property name="minConnectionsPerPartition" value="20"/>
-        <property name="partitionCount" value="3"/>
-        <property name="acquireIncrement" value="10"/>                              
-        <property name="statementsCacheSize" value="50"/>
-    </bean>
+		<property name="datasourceBean">
+			<bean class="org.hsqldb.jdbc.JDBCDataSource">
+				<property name="url" value="jdbc:hsqldb:file:target/db/trainingdb " />
+			</bean>
+		</property>
+	</bean>
 	
 	<jpa:repositories base-package="com.escurity.test1.repositories"></jpa:repositories>
 
@@ -36,7 +30,7 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="generateDdl" value="true" />
 				<property name="showSql" value="true"/>
-				<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
+				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
 			</bean>
 		</property>
 	</bean>

@@ -13,9 +13,11 @@
  
 	<authentication-manager>
 	  <authentication-provider>
-	    <user-service>
-		<user name="han" password="han123" authorities="ROLE_USER" />
-	    </user-service>
+	    <jdbc-user-service data-source-ref="dataSource"
+		  users-by-username-query=
+		    "select username,password, enable from Users where username=?"
+		  authorities-by-username-query=
+		    "select username, role from UserRoles where username =?  " />
 	  </authentication-provider>
 	</authentication-manager>
  

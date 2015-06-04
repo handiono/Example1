@@ -11,6 +11,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 
-<p><a href="barang">List Barang</a> | <a href="transaksi">List Jenis Transaksi</a> | <a href="stock ">List Transaksi Barang</a> </P>
+<p><a href="user">List User</a> | <a href="barang">List Barang</a> | <a href="transaksi">List Jenis Transaksi</a> | <a href="stock ">List Transaksi Barang</a> </P>
 </body>
 </html>

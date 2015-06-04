@@ -54,7 +54,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${serverTime}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write(". </P>\n");
       out.write("\n");
-      out.write("<p><a href=\"barang\">List Barang</a> | <a href=\"transaksi\">List Jenis Transaksi</a> | <a href=\"stock \">List Transaksi Barang</a> </P>\n");
+      out.write("<p><a href=\"user\">List User</a> | <a href=\"barang\">List Barang</a> | <a href=\"transaksi\">List Jenis Transaksi</a> | <a href=\"stock \">List Transaksi Barang</a> </P>\n");
       out.write("</body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
