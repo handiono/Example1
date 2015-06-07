@@ -16,7 +16,7 @@ public class UserRoles {
 	private Long id;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "username", referencedColumnName = "username")
+	@JoinColumn(name = "uname", referencedColumnName = "username")
 	private Users users;
 	
 	@Column

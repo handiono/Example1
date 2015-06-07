@@ -25,6 +25,7 @@ public class UserController {
 	@RequestMapping(value="/user", method = RequestMethod.GET)
 	public String ambilNamaUser(Model model){
 	model.addAttribute("user2", userRepository.findAll());
+	//model.addAttribute("name", userRoleRepository.findByUsersUsername("han"));
 	return "user/list";
 	}
 	
@@ -40,15 +41,27 @@ public class UserController {
 		return "user/edit";
 	}
 	
-//	@RequestMapping(value = "/user", params = "tambahrole", method = RequestMethod.GET)
-//	public String lihatUserRole(@RequestParam long id, Model model){
-//	
-//		model.addAttribute("user", userRepository.findOne(id)); 
-//		
-//		Users users = userRepository.findOne(id);
-//		model.addAttribute("userrole", userRoleRepository.findAll());
-//		return "user/tambahrole";
-//	}
+	@RequestMapping(value = "/user", params = "tambahrole", method = RequestMethod.GET)
+	public String lihatUserRole(@RequestParam long id, Model model){
+
+//		UserRoles ur = userRoleRepository.findOne(id);
+//		Users users = userRepository.find
+//		String u = users.getUsername();
+//		Users ur = userRepository.findByUsername(u);
+		
+//		Users u = userRepository.findOne(id);
+//		String ur = u.getUsername();
+		
+//		model.addAttribute("userrole", userRepository.findOne(id));
+//		model.addAttribute("urole", userRoleRepository.findByU(ur));
+		
+//		model.addAttribute("user", userRepository.findOne(id)); 		
+//		Users users = userRepository.findOne(id);	
+//		model.addAttribute("userrole", userRoleRepository.findByUsers_Username(users));
+		model.addAttribute("user", userRepository.findOne(id));
+		model.addAttribute("userrole", userRoleRepository.findByUsersId(id));
+		return "user/tambahrole";
+	}
 	
 	@RequestMapping(value="/user", params = "tambah", method = RequestMethod.POST)
 	public String tambahUser(@RequestParam String username,

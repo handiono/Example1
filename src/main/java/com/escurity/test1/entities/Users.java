@@ -9,10 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(name = "Users", uniqueConstraints=@UniqueConstraint(columnNames={"id", "username"}))
 public class Users implements Serializable{
 	
+
 	/**
 	 * 
 	 */
@@ -23,7 +27,7 @@ public class Users implements Serializable{
 	private Long id;
 	
 	@Column(unique=true)
-	private String username;
+	private  String username;
 	
 	@Column
 	private String password;
@@ -31,7 +35,7 @@ public class Users implements Serializable{
 	@Column
 	private String enable;
 	
-	@OneToMany(mappedBy="users", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="users", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserRoles> userRoless;
 
 	public Users() {

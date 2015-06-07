@@ -10,10 +10,14 @@
 	
 	<ul>
 	<c:forEach var="user" items="${user2}">
-		<li><a href="user?id=${user.id}&ganti">${user.username}</a></li>
+		<li><a href="user?id=${user.id}&ganti">${user.username}</a> |
+			
+		</li>
 	</c:forEach>
 	</ul>
 	<a href="user?tambah">Tambah User</a> | 
 	<a href="<c:url value = '/' />">Home</a> 
+	<br>
+	
 </body>
 </html>

@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class tambahrole_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -12,7 +12,6 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -22,12 +21,10 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
-    _jspx_tagPool_c_url_value_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -55,28 +52,36 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("<title>Daftar User</title>\n");
+      out.write("<title>Edit User</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("\t<h1>Daftar User</h1>\n");
-      out.write("\t\n");
+      out.write("\t<h1>");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.username }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write(", Status:");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.enable }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</h1>\n");
+      out.write("\t<form action=\"user\" method=\"post\">\n");
+      out.write("\t<input type=\"hidden\" name=\"tambahrole\">\n");
+      out.write("\t<input type=\"hidden\" name=\"id\" value=\"\">\n");
       out.write("\t<ul>\n");
+      out.write("\t\n");
       out.write("\t");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t</ul>\n");
-      out.write("\t<a href=\"user?tambah\">Tambah User</a> | \n");
-      out.write("\t<a href=\"");
-      if (_jspx_meth_c_url_0(_jspx_page_context))
-        return;
-      out.write("\">Home</a> \n");
-      out.write("\t<br>\n");
       out.write("\t\n");
+      out.write("\t<li>New Role <input type=\"text\" name=\"role\" ></li>\n");
+      out.write("\n");
+      out.write("\t</ul>\n");
+      out.write("\t<input type=\"submit\" value=\"Ganti\">\n");
+      out.write("\t</form>\n");
+      out.write("\t\n");
+      out.write("\t<form action=\"user\" method=\"post\">\n");
+      out.write("\t<input type=\"submit\" value=\"Tambah Role\">\n");
+      out.write("\t</form>\n");
+      out.write("\t<a href=\"user\">Kembali ke List User</a>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -100,21 +105,17 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setVar("user");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user2}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("userrole");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userrole}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("\t\t<li><a href=\"user?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("&ganti\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</a> |\n");
-          out.write("\t\t\t\n");
-          out.write("\t\t</li>\n");
+          out.write("\t<li>Role List :");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${userrole.role}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</li>\n");
           out.write("\t");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -132,24 +133,6 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_url_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_0.setParent(null);
-    _jspx_th_c_url_0.setValue("/");
-    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
-    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
-      return true;
-    }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
     return false;
   }
 }

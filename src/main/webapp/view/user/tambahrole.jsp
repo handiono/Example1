@@ -4,15 +4,14 @@
 <title>Edit User</title>
 </head>
 <body>
-	<h1>${user1.users.username}, Role: ${user1.role}, Status:${user1.users.enable}</h1>
+	<h1>${user.username }, Status:${user.enable }</h1>
 	<form action="user" method="post">
 	<input type="hidden" name="tambahrole">
-	<input type="hidden" name="id" value="${user.id}">
+	<input type="hidden" name="id" value="">
 	<ul>
-	<li>Username: ${user.username}</li>
 	
 	<c:forEach var="userrole" items="${userrole}">
-	<li>Role List : ${userrole.role} ></li>
+	<li>Role List :${userrole.role}</li>
 	</c:forEach>
 	
 	<li>New Role <input type="text" name="role" ></li>
