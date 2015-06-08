@@ -174,7 +174,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_1.setParent(null);
     _jspx_th_c_forEach_1.setVar("asd");
-    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${asd}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${barangm}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();

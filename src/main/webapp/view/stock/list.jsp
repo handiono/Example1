@@ -19,7 +19,7 @@
 	<a href="stock?tambah">Tambah Transaksi Stock</a> | <a href="<c:url value = '/' />">Home</a>
 		<br>
 	Listing Jenis transaksi "m":
-	<c:forEach var="asd" items="${asd}">
+	<c:forEach var="asd" items="${barangm}">
 	<ul> 
 	<li>quantity:${asd.quantity }</li>
 	<li>Tanggal:${asd.tanggal }</li>

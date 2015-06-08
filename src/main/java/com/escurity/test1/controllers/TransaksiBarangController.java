@@ -30,7 +30,8 @@ public class TransaksiBarangController {
 	@RequestMapping(value="/stock", method = RequestMethod.GET)
 	public String ambilNamaStock(Model model){
 	model.addAttribute("transaksi2", transaksiBarangRepository.findAll());
-	model.addAttribute("asd", transaksiBarangRepository.findByTransaksiJenis("m"));
+	//model.addAttribute("asd", transaksiBarangRepository.findByTransaksiJenis("m"));
+	model.addAttribute("barangm", transaksiBarangRepository.cariM("m"));
 	return "stock/list";
 	}
 	
