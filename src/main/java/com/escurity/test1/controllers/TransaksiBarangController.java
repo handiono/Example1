@@ -1,5 +1,7 @@
 package com.escurity.test1.controllers;
 
+import org.hibernate.SQLQuery;
+import org.hibernate.sql.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.escurity.test1.entities.Barang;
+import com.escurity.test1.entities.QTransaksiBarang;
 import com.escurity.test1.entities.Transaksi;
 import com.escurity.test1.entities.TransaksiBarang;
 import com.escurity.test1.repositories.BarangRepository;
 import com.escurity.test1.repositories.TransaksiBarangRepository;
 import com.escurity.test1.repositories.TransaksiRepository;
+import com.mysema.query.types.expr.BooleanExpression;
 
 
 @Controller
@@ -30,8 +34,14 @@ public class TransaksiBarangController {
 	@RequestMapping(value="/stock", method = RequestMethod.GET)
 	public String ambilNamaStock(Model model){
 	model.addAttribute("transaksi2", transaksiBarangRepository.findAll());
-	//model.addAttribute("asd", transaksiBarangRepository.findByTransaksiJenis("m"));
+	//use builtin Jpa -- model.addAttribute("asd", transaksiBarangRepository.findByTransaksiJenis("m"));
 	model.addAttribute("barangm", transaksiBarangRepository.cariM("m"));
+	
+	QTransaksiBarang transaksiBarang = QTransaksiBarang.transaksiBarang;	
+	BooleanExpression cariQuantity = transaksiBarang.quantity.lt((long) 500);
+	
+	model.addAttribute("quantity", transaksiBarangRepository.findAll(cariQuantity));
+			 
 	return "stock/list";
 	}
 	
