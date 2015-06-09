@@ -4,24 +4,26 @@ package com.escurity.test1.repositories;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-import com.escurity.test1.entities.QTransaksiBarang;
 import com.escurity.test1.entities.TransaksiBarang;
-import com.mysema.query.types.Predicate;
-import com.mysema.query.types.expr.BooleanExpression;
 
 
 
 public interface TransaksiBarangRepository extends JpaRepository<TransaksiBarang, Long>, QueryDslPredicateExecutor<TransaksiBarang>{
 	
 	List<TransaksiBarang> findByTransaksiJenis(String jenis);
+		
 	List<TransaksiBarang> findByBarangPartno(long id);
 	
 	@Query("select tr from TransaksiBarang tr where tr.barang.partname=?1")
 	List<TransaksiBarang> cariM(String m); 
+	
+//	List<TransaksiBarang> findByBarangPartname(String partname, Pageable pageable);
+
 	
 //	public  Predicate cariQty(){
 //		

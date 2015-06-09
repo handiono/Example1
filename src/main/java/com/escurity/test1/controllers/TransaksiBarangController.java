@@ -3,6 +3,9 @@ package com.escurity.test1.controllers;
 import org.hibernate.SQLQuery;
 import org.hibernate.sql.Template;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +33,18 @@ public class TransaksiBarangController {
 	
 	@Autowired
 	private TransaksiRepository transaksiRepository;
+	
+	@RequestMapping(value="/stockpages", method = RequestMethod.GET)
+	public String listStockPages(Model model, Pageable pageable){
+	
+		Page<TransaksiBarang> tbs = this.transaksiBarangRepository.findAll(pageable);
+		model.addAttribute("members",tbs.getContent());
+		float nrOfPages = tbs.getTotalPages();
+		model.addAttribute("maxPages", nrOfPages);
+//		model.addAttribute("transaksi2", transaksiBarangRepository.findAll(pageable));
+			 
+	return "stock/listpages";
+	}
 	
 	@RequestMapping(value="/stock", method = RequestMethod.GET)
 	public String ambilNamaStock(Model model){
