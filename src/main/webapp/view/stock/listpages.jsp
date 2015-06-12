@@ -6,17 +6,19 @@
 <body>
 	<h1>List Transaksi Stock, Jumlah Halaman:${maxPages}Halaman</h1>
 	<ul>
-	<c:forEach var="transaksi" items="${members}">
-		<li><a href="stock?id=${transaksi.id}&ganti">
-		id: ${transaksi.id}, 
-		tanggal: ${transaksi.tanggal}, 
-		quantity:  ${transaksi.quantity}, 
-		transaksi: ${transaksi.transaksi.jenis}, 
-		barang : ${transaksi.barang.partname}
-		</a></li>
-	</c:forEach>
+		<c:forEach var="transaksi" items="${members}">
+			<li><a href="stock?id=${transaksi.id}&ganti"> id:
+					${transaksi.id}, tanggal: ${transaksi.tanggal}, quantity:
+					${transaksi.quantity}, transaksi: ${transaksi.transaksi.jenis},
+					barang : ${transaksi.barang.partname} </a></li>
+		</c:forEach>
 	</ul>
-	<a href="stock?tambah">Tambah Transaksi Stock</a> | <a href="<c:url value = '/' />">Home</a>
-
+	<br>
+	<div class="row-fluid">
+		<util:pagination thispage="${members}"></util:pagination>
+	</div>
+	<div class="row-fluid">
+		<br> <a href="stock?tambah">Tambah Transaksi Stock</a> | <a
+			href="<c:url value = '/' />">Home</a>
 </body>
 </html>

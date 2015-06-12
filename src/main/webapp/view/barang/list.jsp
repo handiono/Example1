@@ -6,7 +6,7 @@
 <title>Daftar Barang</title>
 </head>
 <body>
-	<h1>Daftar Barang</h1>
+	<h1>Daftar Barang${barang2}</h1>
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
 	   <h2>Welcome : ${pageContext.request.userPrincipal.name} </h2>
 	

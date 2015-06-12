@@ -65,7 +65,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<title>Daftar Barang</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("\t<h1>Daftar Barang</h1>\n");
+      out.write("\t<h1>Daftar Barang");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${barang2}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</h1>\n");
       out.write("\t");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
