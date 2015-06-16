@@ -1,12 +1,19 @@
 package com.escurity.test1.controllers;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.escurity.test1.entities.Barang;
 import com.escurity.test1.repositories.BarangRepository;
@@ -16,6 +23,15 @@ public class BarangController {
 	
 	@Autowired
 	BarangRepository barangRepository ;
+	
+	//Map<Integer, Barang> brgData = new HashMap<Integer, Barang>();
+	
+//	@RequestMapping(value="/barangRest", method = RequestMethod.GET)
+//	public @ResponseBody List<Barang> restNamaBarang(){
+//	
+//	return barangRepository.findAll();
+//	
+//	}
 	
 	@RequestMapping(value="/barang", method = RequestMethod.GET)
 	public String ambilNamaBarang(Model model){

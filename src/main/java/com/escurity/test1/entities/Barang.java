@@ -11,6 +11,9 @@ import javax.persistence.OneToMany;
 
 
 
+
+
+
 @Entity
 public class Barang {
 	
@@ -57,6 +60,10 @@ public class Barang {
 	public String getPartname() {
 		return partname;
 	}
+	
+	public void setPartname(String partname) {
+		this.partname = partname;
+	}
 
 	public Set<TransaksiBarang> getTransaksiBarangs() {
 		return transaksiBarangs;
@@ -64,10 +71,6 @@ public class Barang {
 
 	public void setTransaksiBarangs(Set<TransaksiBarang> transaksiBarangs) {
 		this.transaksiBarangs = transaksiBarangs;
-	}
-
-	public void setPartname(String partname) {
-		this.partname = partname;
 	}
 
 	@Override

@@ -11,6 +11,7 @@
 
 	<context:annotation-config />
 	<tx:annotation-driven />
+	
 
 <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -49,5 +50,8 @@
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     </bean>
+    <!-- rest 
+    <bean class="org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration"/>
+     -->
     
     </beans>

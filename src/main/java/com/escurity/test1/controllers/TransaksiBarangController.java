@@ -1,5 +1,7 @@
 package com.escurity.test1.controllers;
 
+import java.util.List;
+
 import org.hibernate.SQLQuery;
 import org.hibernate.sql.Template;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.escurity.test1.entities.Barang;
 import com.escurity.test1.entities.QTransaksiBarang;
@@ -59,6 +62,13 @@ public class TransaksiBarangController {
 			 
 	return "stock/list";
 	}
+	
+//	@RequestMapping(value="/stockRest", method = RequestMethod.GET)
+//	public @ResponseBody List<TransaksiBarang> restNamaStock(){
+//	
+//		
+//		return transaksiBarangRepository.findAll();
+//	}
 	
 	@RequestMapping(value = "/stock", params = "tambah", method = RequestMethod.GET)
 	public String inputNamaStock(Model model){

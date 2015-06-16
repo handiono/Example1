@@ -23,7 +23,7 @@ import javax.persistence.StoredProcedureParameter;
 @Entity
 //@NamedStoredProcedureQuery(name = "sp", procedureName="getBarang", resultClasses = BarangCp.class)
 //@NamedStoredProcedureQuery(name = "", procedureName="", parameter={@StoredProcedureParameter(mode = ParameterMode.) 
-@NamedStoredProcedureQuery(name = "BarangCp.get", procedureName = "getBarang")
+@NamedStoredProcedureQuery(name = "BarangCp.get", procedureName = "getBarang", resultClasses = BarangCp.class)
 public class BarangCp {
 	
 	@Id

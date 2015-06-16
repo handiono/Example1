@@ -8,19 +8,14 @@
 <body>
 	<h1>Daftar Barang</h1>
 	
-	   <h2>Stored Proceduer example page</h2>
+	   <h2>Stored Proceduer example page${barang2}</h2>
 	<ul>
 	<c:forEach var="barang" items="${barang2}">
-		<li>${barang}</a></li>
-		
-	<c:forEach var="barang3" items="${barang}">
-		<li>${barang3}</a></li>
-	</c:forEach>
-	
-	
+		<li><a href="barang?id=${barang.barang_id}&ganti">${barang.partname}</a></li>
 	</c:forEach>
 	</ul>
-
+	<a href="barang?tambah">Tambah Barang</a> | 
+	<a href="<c:url value = '/' />">Home</a> | 
 
 	<a href="<c:url value = '/' />">Home</a> | 
 

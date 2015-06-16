@@ -47,6 +47,11 @@
 		<property name="order" value="0" />
 	</bean>
 
+	
 	<bean class="org.springframework.data.web.config.SpringDataWebConfiguration" />
+	
+	<!--
+	 <bean class="org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration"/>
+	-->
 
 </beans>	

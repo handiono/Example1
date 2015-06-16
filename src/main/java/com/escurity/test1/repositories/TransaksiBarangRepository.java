@@ -4,10 +4,10 @@ package com.escurity.test1.repositories;
 
 import java.util.List;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.escurity.test1.entities.TransaksiBarang;
 
@@ -17,10 +17,12 @@ public interface TransaksiBarangRepository extends JpaRepository<TransaksiBarang
 	
 	List<TransaksiBarang> findByTransaksiJenis(String jenis);
 		
-	List<TransaksiBarang> findByBarangPartno(long id);
+	List<TransaksiBarang> findByBarangPartno(String partno);
 	
 	@Query("select tr from TransaksiBarang tr where tr.barang.partname=?1")
 	List<TransaksiBarang> cariM(String m); 
+	
+	List<TransaksiBarang> findByBarangPartname(String partname);
 	
 //	List<TransaksiBarang> findByBarangPartname(String partname, Pageable pageable);
 

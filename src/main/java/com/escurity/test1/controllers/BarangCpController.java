@@ -1,17 +1,14 @@
 package com.escurity.test1.controllers;
 
 
-import java.sql.ResultSet;
 import java.util.List;
 
-import javax.naming.spi.DirStateFactory.Result;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.StoredProcedureQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,8 +38,16 @@ public class BarangCpController {
 	@RequestMapping(value="/barangCp", method = RequestMethod.GET)
 	public String ambilStoredProcedurBarang(Model model){
 		
+		
 		StoredProcedureQuery proc = em.createNamedStoredProcedureQuery("BarangCp.get");
 		proc.execute();
+		List<BarangCp> result = proc.getResultList();
+		
+		
+		model.addAttribute("barang2", result);
+		
+//		model.addAttribute("barang", barangCpRepository.getBarang());
+		
 //		List hasil = proc.getResultList();
 //		
 //		for(int i=0; i<proc.getMaxResults();i++){
@@ -58,7 +63,7 @@ public class BarangCpController {
 //		Query spq = em.createNamedQuery("sp");
 //		List barangs = spq.getResultList();
 	
-		model.addAttribute("barang2", proc.getResultList());
+		
 		
 	return "barangCp/list";
 	}
